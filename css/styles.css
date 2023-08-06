@@ -30,6 +30,7 @@ body {
 .etchASketchLeft,
 .etchASketchRight {
     display: flex;
+    flex-direction: column;
     width: 100px;
     background-color: brown;
 }
@@ -47,7 +48,7 @@ body {
     height: 32px;*/
     flex-basis: 6.25%;
     box-sizing: border-box;
-    border: 1px dashed darkred;
+    border: 0.5px dashed darkred;
     transition: all;
     transition-duration: 1s;
 }
