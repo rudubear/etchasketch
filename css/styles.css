@@ -1,0 +1,41 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+    border: dashed 1px black;
+    text-align: center;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0px;
+    display: flex;
+    box-sizing:border-box;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: burlywood;
+}
+
+.header {
+    background-color: blanchedalmond;
+}
+
+.footer {
+    background-color: blanchedalmond;
+}
+
+.etchASketchContainer {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.etchASketchLeft,
+.etchASketchRight {
+    display: flex;
+    width: 100px;
+    background-color: brown;
+}
+
+#etchASketch {
+    display: flex;
+}
