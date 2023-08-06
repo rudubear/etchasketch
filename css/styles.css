@@ -1,6 +1,6 @@
 * {
     font-family: 'Courier New', Courier, monospace;
-    border: dashed 1px black;
+    border: dashed 0x black;
     text-align: center;
 }
 
@@ -38,4 +38,26 @@ body {
 
 #etchASketch {
     display: flex;
+    flex-wrap: wrap;
+    width: 720px;
+    height: 720px;
+    margin: 0;
 }
+
+.square {
+    /*width: 32px;
+    height: 32px;*/
+    flex-basis: 6.25%;
+    box-sizing: border-box;
+    border: 1px dashed darkred;
+    transition: all;
+    transition-duration: 1s;
+}
+
+.square:hover {
+    background-color: darkorange;
+    transition: all;
+    transition-duration: 0.1s;
+    
+}
+
