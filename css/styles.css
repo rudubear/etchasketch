@@ -14,13 +14,11 @@ body {
     background-color: burlywood;
 }
 
-.header {
-    background-color: blanchedalmond;
-}
-
+.header,
 .footer {
     background-color: blanchedalmond;
 }
+
 
 .etchASketchContainer {
     margin: auto;
@@ -60,4 +58,6 @@ body {
     transition-duration: 0.1s;
     
 }
+
+
 
