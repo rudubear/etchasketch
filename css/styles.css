@@ -25,6 +25,9 @@ body {
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    justify-content: center;
+    width: 720px;
+    height: 520px;
 }
 
 .etchASketchLeft,
@@ -38,9 +41,7 @@ body {
 #etchASketch {
     display: flex;
     flex-wrap: wrap;
-    width: 720px;
-    height: 720px;
-    margin: 0;
+    flex: 1;
 }
 
 .square {

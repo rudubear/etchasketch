@@ -1,8 +1,10 @@
+//Constants for setting page to default colors and gridsize
 const DEFAULT_MARKER_COLOR = "white"
 const DEFAULT_SIDE_PANEL_COLOR = "brown";
 const DEFAULT_SQUARE_HOVER_COLOR = "darkorange";
 const DEFAULT_PAGE_BG_COLOR = "blanchedalmond";
 const DEFAULT_BODY_COLOR = "burlywood";
+const DEFAULT_GRID_SIDE_LENGTH = 16;
 
 
 const etchASketchPad = document.getElementById("etchASketch")
@@ -11,9 +13,13 @@ const dontTriggerDefault = (e) => {e.preventDefault()};
 
 let mouseButtonIsPressed = undefined;
 
+
 etchASketchPad.addEventListener("mousemove", captureMouseButtonState);
 etchASketchPad.addEventListener("drag", (e) => {console.log(e)});
 etchASketchPad.addEventListener("dragstart", dontTriggerDefault);
+
+
+populateEtchASketch(DEFAULT_GRID_SIDE_LENGTH);
 
 
 function captureMouseButtonState(e){
@@ -39,9 +45,7 @@ function markSquares(e, MARKER_COLOR) {
 
 }
 
-console.log(etchASketchPad);
 
-populateEtchASketch(16);
 
 function setGridSize(){
     let newGridSize = prompt("Please Enter a new Grid Length (1-100");
@@ -66,6 +70,7 @@ function populateEtchASketch(gridSideLength){
         const squareSideLengthFlexBasis = Math.floor((100/gridSideLength) * 100) / 100;
         //console.log(newFlexBasis);
         square.style.flexBasis = `${squareSideLengthFlexBasis}%`;
+        square.style.flexGrow = 1;
         etchASketchPad.appendChild(square);
     }
 }
