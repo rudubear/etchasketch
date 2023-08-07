@@ -1,10 +1,5 @@
-//Constants for setting page to default colors and gridsize
-const DEFAULT_MARKER_COLOR = "white"
-const DEFAULT_SIDE_PANEL_COLOR = "brown";
-const DEFAULT_SQUARE_HOVER_COLOR = "darkorange";
-const DEFAULT_PAGE_BG_COLOR = "blanchedalmond";
-const DEFAULT_ETCHASKETCH_COLOR = "burlywood";
 const DEFAULT_GRID_SIDE_LENGTH = 16;
+const DEFAULT_SELECTED_COLOR = "#CC0000";
 
 let isRandomMarkerColor = false ;
 let mouseButtonIsPressed = undefined;
@@ -15,12 +10,9 @@ const toggleRandomColorsButton = document.getElementById("btn_toggleRandomColors
 const selectedColor = document.getElementById("selectedColor");
 const myAudio = document.getElementById("myaudio");
 
-
-
 etchASketchPad.addEventListener("mousemove", captureMouseButtonState);
 etchASketchPad.addEventListener("drag", (e) => {console.log(e)});
 etchASketchPad.addEventListener("dragstart", dontTriggerDefault);
-
 
 populateEtchASketch(DEFAULT_GRID_SIDE_LENGTH);
 
@@ -43,7 +35,6 @@ function populateEtchASketch(gridSideLength){
     }
 }
 
-
 function captureMouseButtonState(e){
     if (e.buttons > 0) {
         mouseButtonIsPressed = true;
@@ -54,7 +45,6 @@ function captureMouseButtonState(e){
     else {
         console.log("what happened here");
     }
-    //console.log(mouseButtonIsPressed);
     if(mouseButtonIsPressed) {
         markSquares(e, isRandomMarkerColor ? getRandomColor() : selectedColor["value"]);
     }
@@ -89,6 +79,7 @@ function resetEtchASketch(){
     populateEtchASketch(DEFAULT_GRID_SIDE_LENGTH);
     isRandomMarkerColor = false;
     toggleRandomColorsButton.textContent = "Single Color";
+    selectedColor["value"] = DEFAULT_SELECTED_COLOR;
 }
 
 function setGridSize(){
