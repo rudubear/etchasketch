@@ -19,14 +19,13 @@ body {
     background-color: blanchedalmond;
 }
 
-
 .etchASketchContainer {
     margin: auto;
     display: flex;
     flex-direction: row;
     align-items: stretch;
     justify-content: center;
-    width: 720px;
+    width: 920px;
     height: 520px;
 }
 
@@ -34,7 +33,7 @@ body {
 .etchASketchRight {
     display: flex;
     flex-direction: column;
-    width: 100px;
+    width: 200px;
     background-color: brown;
 }
 
@@ -62,4 +61,10 @@ body {
 }
 
 
+
+button {
+    border-radius: 8px;
+    background-color:coral;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 

@@ -8,7 +8,6 @@ const DEFAULT_GRID_SIDE_LENGTH = 16;
 
 
 const etchASketchPad = document.getElementById("etchASketch")
-const gridSideLength = 33;
 const dontTriggerDefault = (e) => {e.preventDefault()};
 
 let mouseButtonIsPressed = undefined;
@@ -20,6 +19,24 @@ etchASketchPad.addEventListener("dragstart", dontTriggerDefault);
 
 
 populateEtchASketch(DEFAULT_GRID_SIDE_LENGTH);
+
+function populateEtchASketch(gridSideLength){
+    console.log(`Populating Etch-A-Sketch Grid at ${gridSideLength}x${gridSideLength}`);
+    for(let x = 0; x< gridSideLength**2 ; x++){
+        const square = document.createElement('div');
+        square.classList += `square`;
+        
+        //adding an XY coordinate mapping via attributes to the divs. No use for these right now but might use them later.
+        square.setAttribute("data-coordX",`${x % gridSideLength}`);
+        square.setAttribute("data-coordY",`${Math.floor(x/gridSideLength)}`);
+        
+        //setting growth and shrinkage of squares
+        const squareSideLengthFlexBasis = Math.floor((100/gridSideLength) * 100) / 100;
+        square.style.flexBasis = `${squareSideLengthFlexBasis}%`;
+        square.style.flexGrow = 1;
+        etchASketchPad.appendChild(square);
+    }
+}
 
 
 function captureMouseButtonState(e){
@@ -49,23 +66,9 @@ function setGridSize(){
         etchASketchPad.textContent = "";
         populateEtchASketch(newGridSize);
     }
-}
-
-function populateEtchASketch(gridSideLength){
-    console.log(`Populating Etch-A-Sketch Grid at ${gridSideLength}x${gridSideLength}`);
-    for(let x = 0; x< gridSideLength**2 ; x++){
-        const square = document.createElement('div');
-        square.classList += `square`;
-        
-        //adding an XY coordinate mapping via attributes to the divs. No use for these right now but might use them later.
-        square.setAttribute("data-coordX",`${x % gridSideLength}`);
-        square.setAttribute("data-coordY",`${Math.floor(x/gridSideLength)}`);
-        
-        //setting growth and shrinkage of squares
-        const squareSideLengthFlexBasis = Math.floor((100/gridSideLength) * 100) / 100;
-        square.style.flexBasis = `${squareSideLengthFlexBasis}%`;
-        square.style.flexGrow = 1;
-        etchASketchPad.appendChild(square);
+    else {
+        etchASketchPad.textContent = "";
+        populateEtchASketch(DEFAULT_GRID_SIDE_LENGTH);
     }
 }
 
