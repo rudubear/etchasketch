@@ -13,16 +13,15 @@
     </div>
     <div class="etchASketchContainer">
         <div class="etchASketchLeft">
-            <p>
-                some controls
-            </p>
-            <button onclick="setGridSize()">Set Grid Size</button>
+            <div class="colorSelector">
+                <input type="color" id="selectedColor" name="selectedColor" value="#000000">
+            </div>
+            <button id="btn_toggleRandomColors" onclick="toggleRandomColors()">Single Color</button>
         </div>
         <div id="etchASketch" draggable="false"></div>
         <div class="etchASketchRight">
-            <p>
-                some controls
-            </p>
+            <button onclick="setGridSize()">Set Grid Size</button>
+            <button onclick="clearEtchaSketch()">Clear</button>
         </div>
     </div>
     <div class="footer">
