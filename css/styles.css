@@ -93,3 +93,7 @@ input[type='color'] {
     background: #FFFFFF 0% 0% no-repeat padding-box;
     transform: scale(1.5);
 }
+
+audio {
+    display: none;
+}

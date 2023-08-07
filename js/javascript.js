@@ -13,6 +13,7 @@ const etchASketchPad = document.getElementById("etchASketch")
 const dontTriggerDefault = (e) => {e.preventDefault()};
 const toggleRandomColorsButton = document.getElementById("btn_toggleRandomColors");
 const selectedColor = document.getElementById("selectedColor");
+const myAudio = document.getElementById("myaudio");
 
 
 
@@ -97,6 +98,19 @@ function setGridSize(){
     }
     else {
         populateEtchASketch(DEFAULT_GRID_SIDE_LENGTH);
+    }
+}
+
+function toggleAudio(){
+    console.log(myAudio);
+    console.log(myAudio.duration);
+    console.log(myAudio.currentTime);
+    if(myAudio.currentTime){
+        myAudio.pause();
+        myAudio.currentTime = 0;
+    }
+    else {
+        myAudio.play();
     }
 }
 
