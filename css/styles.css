@@ -28,6 +28,7 @@ body {
     width: 920px;
     height: 520px;
     border: 2px solid darkred;
+    box-shadow: 2px 2px 2px 2px;
 }
 
 .etchASketchLeft,
@@ -38,6 +39,11 @@ body {
     align-items: center;
     width: 200px;
     background-color: brown;
+}
+
+.etchASketchRight{
+    color: burlywood;
+    text-shadow: 1px 1px 2px black;
 }
 
 #etchASketch {
@@ -64,12 +70,11 @@ body {
 }
 
 
-
 button {
     width: 150px;
     height: 32px;
     border-radius: 8px;
-    background-color:coral;
+    background-color:rgb(255, 115, 0);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 

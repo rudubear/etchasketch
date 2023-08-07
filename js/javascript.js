@@ -25,11 +25,11 @@ populateEtchASketch(DEFAULT_GRID_SIDE_LENGTH);
 
 function populateEtchASketch(gridSideLength){
     console.log(`Populating Etch-A-Sketch Grid at ${gridSideLength}x${gridSideLength}`);
+    etchASketchPad.textContent = "";
     for(let x = 0; x< gridSideLength**2 ; x++){
         const square = document.createElement('div');
         square.classList += `square`;
         
-        //square.style.backgroundColor = DEFAULT_ETCHASKETCH_COLOR;
         //adding an XY coordinate mapping via attributes to the divs. No use for these right now but might use them later.
         square.setAttribute("data-coordX",`${x % gridSideLength}`);
         square.setAttribute("data-coordY",`${Math.floor(x/gridSideLength)}`);
@@ -55,7 +55,7 @@ function captureMouseButtonState(e){
     }
     //console.log(mouseButtonIsPressed);
     if(mouseButtonIsPressed) {
-        markSquares(e, isRandomMarkerColor ? getRandomColor() : DEFAULT_MARKER_COLOR);
+        markSquares(e, isRandomMarkerColor ? getRandomColor() : selectedColor["value"]);
     }
 }
 
@@ -69,41 +69,33 @@ function getRandomColor(){
     let red = Math.floor(Math.random()*255);
     let green = Math.floor(Math.random()*255);
     let blue = Math.floor(Math.random()*255);
-    console.log(`R = ${red} G = ${green} B = ${blue}`);
     return `rgb(${red},${green},${blue})`;
 }
 
 function toggleRandomColors(){
     if(isRandomMarkerColor) {
         isRandomMarkerColor = false;
-        toggleRandomColorsButton.textContent = "Single Color";
+        toggleRandomColorsButton.textContent = "Random Color";
     }
     else {
         isRandomMarkerColor = true;
-        toggleRandomColorsButton.textContent = "Random Color";
+        toggleRandomColorsButton.textContent = "Single Color";
     }
-
-    console.log(selectedColor);
 }
 
-function setMarkerColor(){
-//TODO:
-}
 
 function resetEtchASketch(){
     populateEtchASketch(DEFAULT_GRID_SIDE_LENGTH);
     isRandomMarkerColor = false;
-    toggleRandomColorsButton.textContent = "Random Color";
+    toggleRandomColorsButton.textContent = "Single Color";
 }
 
 function setGridSize(){
     let newGridSize = prompt("Please Enter a new Grid Length (1-100");
     if (Number.isInteger(Number(newGridSize)) && newGridSize !== "" && newGridSize !== null) {
-        etchASketchPad.textContent = "";
         populateEtchASketch(newGridSize);
     }
     else {
-        etchASketchPad.textContent = "";
         populateEtchASketch(DEFAULT_GRID_SIDE_LENGTH);
     }
 }

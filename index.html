@@ -9,19 +9,23 @@
 <body>
     <div class="header">
         <h1>Rudubear Etch-A-Sketch</h1>
-        <p>This is an etcha--sketch game developed as part of The Odin Project</p>
+        <p>This is an etch-a-sketch game developed as part of The Odin Project</p>
     </div>
     <div class="etchASketchContainer">
         <div class="etchASketchLeft">
             <div class="colorSelector">
-                <input type="color" id="selectedColor" name="selectedColor" value="#000000">
+                <input type="color" id="selectedColor" name="selectedColor" value="#CC0000">
             </div>
             <button id="btn_toggleRandomColors" onclick="toggleRandomColors()">Single Color</button>
+            <button onclick="setGridSize()">Set Grid Size</button>
+            <button onclick="resetEtchASketch()">Reset</button>
+            <button onclick="toggleAudio()">Toggle Audio</button>
         </div>
         <div id="etchASketch" draggable="false"></div>
         <div class="etchASketchRight">
-            <button onclick="setGridSize()">Set Grid Size</button>
-            <button onclick="clearEtchaSketch()">Clear</button>
+            <p>Etch-A-Sketch</p>
+            <p>This is a childrens toy brought to desktop web browsers so that you may draw to your hearts content.<p>
+            <p>Presently this page is not designed to be compatible with mobile devices but will be in the near future.</p>
         </div>
     </div>
     <div class="footer">
