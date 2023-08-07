@@ -83,7 +83,7 @@ function resetEtchASketch(){
 }
 
 function setGridSize(){
-    let newGridSize = prompt("Please Enter a new Grid Length (1-100");
+    let newGridSize = prompt("Please Enter a new Grid Length (1-100)");
     if (Number.isInteger(Number(newGridSize)) && newGridSize !== "" && newGridSize !== null) {
         populateEtchASketch(newGridSize);
     }
