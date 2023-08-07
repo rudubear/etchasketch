@@ -33,7 +33,6 @@ function captureMouseButtonState(e){
         console.log("what happened here");
     }
     //console.log(mouseButtonIsPressed);
-
     if(mouseButtonIsPressed) {
         markSquares(e, DEFAULT_MARKER_COLOR);
     }
@@ -42,33 +41,28 @@ function captureMouseButtonState(e){
 function markSquares(e, MARKER_COLOR) {
     const selectedSquare = e.srcElement;
     selectedSquare.style.backgroundColor = MARKER_COLOR;
-
 }
-
-
 
 function setGridSize(){
     let newGridSize = prompt("Please Enter a new Grid Length (1-100");
     if (Number.isInteger(Number(newGridSize))) {
         etchASketchPad.textContent = "";
         populateEtchASketch(newGridSize);
-        console.log(`resetting grid to ${newGridSize}x${newGridSize}`)
     }
-    console.log(newGridSize);
 }
 
 function populateEtchASketch(gridSideLength){
+    console.log(`Populating Etch-A-Sketch Grid at ${gridSideLength}x${gridSideLength}`);
     for(let x = 0; x< gridSideLength**2 ; x++){
         const square = document.createElement('div');
-        square.setAttribute("draggable","false");
-
         square.classList += `square`;
         
         //adding an XY coordinate mapping via attributes to the divs. No use for these right now but might use them later.
         square.setAttribute("data-coordX",`${x % gridSideLength}`);
         square.setAttribute("data-coordY",`${Math.floor(x/gridSideLength)}`);
+        
+        //setting growth and shrinkage of squares
         const squareSideLengthFlexBasis = Math.floor((100/gridSideLength) * 100) / 100;
-        //console.log(newFlexBasis);
         square.style.flexBasis = `${squareSideLengthFlexBasis}%`;
         square.style.flexGrow = 1;
         etchASketchPad.appendChild(square);
